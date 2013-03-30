@@ -2,7 +2,7 @@
 
 namespace Convolved.Funnel.Configuration
 {
-    public interface IConfigurationRoot
+    public interface IConfigurationRoot : IFluentInterface
     {
         IConfigure Pickup(string filesearchExpression);
     }
