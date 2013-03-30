@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convolved.Funnel", "Convolved.Funnel\Convolved.Funnel.csproj", "{8732C0F9-5E8D-463A-B48D-7FCF66241A2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convolved.Funnel.Example", "Convolved.Funnel.Example\Convolved.Funnel.Example.csproj", "{6BF1152B-CF67-4713-B533-061241A761B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{8732C0F9-5E8D-463A-B48D-7FCF66241A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8732C0F9-5E8D-463A-B48D-7FCF66241A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8732C0F9-5E8D-463A-B48D-7FCF66241A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF1152B-CF67-4713-B533-061241A761B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF1152B-CF67-4713-B533-061241A761B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF1152B-CF67-4713-B533-061241A761B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF1152B-CF67-4713-B533-061241A761B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
