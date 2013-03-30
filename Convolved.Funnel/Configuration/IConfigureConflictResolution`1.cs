@@ -2,7 +2,7 @@
 
 namespace Convolved.Funnel.Configuration
 {
-    public interface IConfigureConflictResolution<T>
+    public interface IConfigureConflictResolution<T> : IFluentInterface
     {
         IConfigureTasks<T> Delete();
         IConfigureConflictResolution<T> DeleteIfOlder();

@@ -3,7 +3,7 @@ using Convolved.Funnel.Tasks;
 
 namespace Convolved.Funnel.Configuration
 {
-    public interface IConfigureTasks<T>
+    public interface IConfigureTasks<T> : IFluentInterface
     {
         IConfigureMoving<T> Delete();
         IConfigureMoving<T> DeleteIf(FileStatus status);

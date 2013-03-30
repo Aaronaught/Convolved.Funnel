@@ -2,7 +2,7 @@
 
 namespace Convolved.Funnel.Configuration
 {
-    public interface IConfigureSendingWindow<T>
+    public interface IConfigureSendingWindow<T> : IFluentInterface
     {
         IConfigureSending<T> Milliseconds();
         IConfigureSending<T> Seconds();
