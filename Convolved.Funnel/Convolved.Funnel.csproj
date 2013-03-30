@@ -45,7 +45,7 @@
     <Compile Include="Configuration\IConfigure.cs" />
     <Compile Include="Configuration\IConfigureConflictResolution`1.cs" />
     <Compile Include="Configuration\IConfigureErrorHandling`1.cs" />
-    <Compile Include="Configuration\IConfigureFields`2.cs" />
+    <Compile Include="Configuration\IConfigureFields`3.cs" />
     <Compile Include="Configuration\IConfigureMovingWithDestination`1.cs" />
     <Compile Include="Configuration\IConfigureMoving`1.cs" />
     <Compile Include="Configuration\IConfigureParseErrorHandling`1.cs" />

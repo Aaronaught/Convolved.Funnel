@@ -2,9 +2,9 @@
 
 namespace Convolved.Funnel.Configuration
 {
-    public interface IConfigureUnknownRecordType<T, TSection> : IConfigureFields<T, TSection>
+    public interface IConfigureUnknownRecordType<T, TSection> : IFluentInterface
     {
-        IConfigureFields<T, TSection> Error();
-        IConfigureFields<T, TSection> Ignore();
+        IConfigureFields<T, TSection, TSection> Error();
+        IConfigureFields<T, TSection, TSection> Ignore();
     }
 }
