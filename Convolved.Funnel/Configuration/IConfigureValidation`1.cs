@@ -5,6 +5,6 @@ namespace Convolved.Funnel.Configuration
 {
     public interface IConfigureValidation<T> : IConfigureErrorHandling<T>
     {
-        IConfigure<T> ValidateWith<TValidator>() where TValidator : IValidate<T>;
+        IConfigureValidation<T> ValidateWith<TValidator>() where TValidator : IValidate<T>;
     }
 }
