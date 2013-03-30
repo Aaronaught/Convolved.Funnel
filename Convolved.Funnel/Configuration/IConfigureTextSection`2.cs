@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 
 namespace Convolved.Funnel.Configuration
 {
@@ -8,6 +9,7 @@ namespace Convolved.Funnel.Configuration
         IConfigureTextSection<T, TSection> EndsWith(string lineText);
         IConfigureTextSection<T, TSection> EndsWithBlankLine();
         IConfigureTextSectionExactly<T, TSection> Exactly(uint lineCount);
+        IConfigureTextSectionExactly<T, TSection> Exactly(Expression<Func<T, uint>> lineCount);
         IConfigureFields<T, TSection, TSection> Fields { get; }
     }
 }
