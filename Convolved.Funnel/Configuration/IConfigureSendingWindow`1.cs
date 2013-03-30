@@ -1,0 +1,11 @@
+﻿using System;
+
+namespace Convolved.Funnel.Configuration
+{
+    public interface IConfigureSendingWindow<T>
+    {
+        IConfigureSending<T> Milliseconds();
+        IConfigureSending<T> Seconds();
+        IConfigureSending<T> Minutes();
+    }
+}

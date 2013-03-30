@@ -1,0 +1,6 @@
+G:\My Documents\Visual Studio 2010\Projects\Convolved\Convolved.Funnel\Convolved.Funnel\obj\Debug\Convolved.Funnel.csprojResolveAssemblyReference.cache
+G:\My Documents\Visual Studio 2010\Projects\Convolved\Convolved.Funnel\Convolved.Funnel\bin\Debug\Convolved.Funnel.XML
+G:\My Documents\Visual Studio 2010\Projects\Convolved\Convolved.Funnel\Convolved.Funnel\bin\Debug\Convolved.Funnel.dll
+G:\My Documents\Visual Studio 2010\Projects\Convolved\Convolved.Funnel\Convolved.Funnel\bin\Debug\Convolved.Funnel.pdb
+G:\My Documents\Visual Studio 2010\Projects\Convolved\Convolved.Funnel\Convolved.Funnel\obj\Debug\Convolved.Funnel.dll
+G:\My Documents\Visual Studio 2010\Projects\Convolved\Convolved.Funnel\Convolved.Funnel\obj\Debug\Convolved.Funnel.pdb

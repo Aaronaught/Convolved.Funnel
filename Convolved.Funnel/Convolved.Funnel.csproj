@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8732C0F9-5E8D-463A-B48D-7FCF66241A2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Convolved.Funnel</RootNamespace>
+    <AssemblyName>Convolved.Funnel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Convolved.Funnel.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Convolved.Funnel.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\IConfigurationRoot.cs" />
+    <Compile Include="Configuration\IConfigure.cs" />
+    <Compile Include="Configuration\IConfigureConflictResolution`1.cs" />
+    <Compile Include="Configuration\IConfigureErrorHandling`1.cs" />
+    <Compile Include="Configuration\IConfigureFields`2.cs" />
+    <Compile Include="Configuration\IConfigureMovingWithDestination`1.cs" />
+    <Compile Include="Configuration\IConfigureMoving`1.cs" />
+    <Compile Include="Configuration\IConfigureParseErrorHandling`1.cs" />
+    <Compile Include="Configuration\IConfigureQuoting.cs" />
+    <Compile Include="Configuration\IConfigureSendingWindow`1.cs" />
+    <Compile Include="Configuration\IConfigureSending`1.cs" />
+    <Compile Include="Configuration\IConfigureTasks`1.cs" />
+    <Compile Include="Configuration\IConfigureTextSectionExactly`2.cs" />
+    <Compile Include="Configuration\IConfigureTextSection`2.cs" />
+    <Compile Include="Configuration\IConfigureText`1.cs" />
+    <Compile Include="Configuration\IConfigureUnknownRecordType`2.cs" />
+    <Compile Include="Configuration\IConfigureValidation`1.cs" />
+    <Compile Include="Configuration\IConfigure`1.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="FileStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\IAcceptParameters.cs" />
+    <Compile Include="Tasks\IHandleErrors`1.cs" />
+    <Compile Include="Text\IContainParseDetails.cs" />
+    <Compile Include="Tasks\IReceive`1.cs" />
+    <Compile Include="Tasks\ITransform`1.cs" />
+    <Compile Include="Text\IParse.cs" />
+    <Compile Include="Text\ParseError.cs" />
+    <Compile Include="Validation\IContainValidationDetails.cs" />
+    <Compile Include="Tasks\IHandleErrors.cs" />
+    <Compile Include="Validation\IValidate`1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Validation\ValidationError.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
