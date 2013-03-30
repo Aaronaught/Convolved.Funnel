@@ -9,6 +9,7 @@ namespace Convolved.Funnel.Configuration
         IConfigureMoving<T> DeleteIf(FileStatus status);
         IConfigureMoving<T> Move();
         IConfigureMoving<T> MoveIf(FileStatus status);
+        IConfigureReports<T> Reports();
         IConfigureSending<T> SendTo(Action<T> receiver);
         IConfigureSending<T> SendTo(IReceive<T> receiver);
         IConfigureSending<T> SendTo<TReceiver>(params object[] args)

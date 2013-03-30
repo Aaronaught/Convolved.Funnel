@@ -46,10 +46,13 @@
     <Compile Include="Configuration\IConfigureConflictResolution`1.cs" />
     <Compile Include="Configuration\IConfigureErrorHandling`1.cs" />
     <Compile Include="Configuration\IConfigureFields`3.cs" />
+    <Compile Include="Configuration\IConfigureReportSettings`1.cs" />
+    <Compile Include="Configuration\IConfigureReports`1.cs" />
     <Compile Include="Configuration\IConfigureMovingWithDestination`1.cs" />
     <Compile Include="Configuration\IConfigureMoving`1.cs" />
     <Compile Include="Configuration\IConfigureParseErrorHandling`1.cs" />
     <Compile Include="Configuration\IConfigureQuoting.cs" />
+    <Compile Include="Configuration\IConfigureReportWindow`1.cs" />
     <Compile Include="Configuration\IConfigureSendingWindow`1.cs" />
     <Compile Include="Configuration\IConfigureSending`1.cs" />
     <Compile Include="Configuration\IConfigureTasks`1.cs" />
@@ -65,6 +68,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\IAcceptParameters.cs" />
     <Compile Include="Tasks\IHandleErrors`1.cs" />
+    <Compile Include="Tasks\ISendReports.cs" />
+    <Compile Include="Tasks\SmtpSender.cs" />
     <Compile Include="Tasks\StandardErrorLog.cs" />
     <Compile Include="Text\IContainParseDetails.cs" />
     <Compile Include="Tasks\IReceive`1.cs" />

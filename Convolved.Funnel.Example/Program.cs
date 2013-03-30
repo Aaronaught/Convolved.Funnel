@@ -63,7 +63,19 @@ namespace Convolved.Funnel.Example
                     .MoveIf(FileStatus.OK).To(@"C:\Temp\Processed")
                         .ConflictResolution.Replace()
                     .MoveIf(FileStatus.Error).To(@"C:\Temp\Errors")
-                        .ConflictResolution.ReplaceIfNewer().DeleteIfOlder().Rename(20);
+                        .ConflictResolution.ReplaceIfNewer().DeleteIfOlder().Rename(20)
+                .Reports()
+                    .Summary().Every(1).Days()
+                        .SendTo("manager@example.com", "it@example.com")
+                        .PreferredTime(TimeSpan.Parse("08:00"))
+                    .Errors().Every(3).Hours()
+                        .SendTo("service@example.com")
+                        .PreferredTime(TimeSpan.Parse("06:00"))
+                    .NoFilesReceived().Every(1).Days()
+                        .SendTo("it@example.com")
+                        .PreferredTime(TimeSpan.Parse("09:00"))
+                    .SendAllTo("alerts@example.com")
+                    .SendWith<SmtpSender>();
         }
     }
 }
