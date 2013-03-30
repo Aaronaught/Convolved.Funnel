@@ -11,9 +11,9 @@ namespace Convolved.Funnel.Configuration
         IConfigureText<T> Convention<TProperty, TParser>() where TParser : IParse<TProperty>;
         IConfigureText<T> DefaultDelimiter(string delimiter);
         IConfigureText<T> IgnoreBlankLines();
-        IConfigureParseErrorHandling<T> ParseErrors();
         IConfigureQuoting<T> Quoting();
         IConfigureTextSection<T, TSection> Section<TSection>(Func<T, TSection> selector);
         IConfigureTextSection<T, TSection> Section<TSection>(Func<T, IEnumerable<TSection>> selector);
+        IConfigureParseErrorHandling<T> ParseErrors { get; }
     }
 }

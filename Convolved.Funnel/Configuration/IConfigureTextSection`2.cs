@@ -8,6 +8,6 @@ namespace Convolved.Funnel.Configuration
         IConfigureTextSection<T, TSection> EndsWith(string lineText);
         IConfigureTextSection<T, TSection> EndsWithBlankLine();
         IConfigureTextSectionExactly<T, TSection> Exactly(uint lineCount);
-        IConfigureFields<T, TSection> Fields();
+        IConfigureFields<T, TSection, TSection> Fields { get; }
     }
 }

@@ -4,6 +4,7 @@ namespace Convolved.Funnel.Configuration
 {
     public interface IConfigureMoving<T> : IConfigureTasks<T>
     {
-        IConfigureTasks<T> To(string directory);
+        IConfigureMoving<T> To(string directory);
+        IConfigureConflictResolution<T> ConflictResolution { get; }
     }
 }
