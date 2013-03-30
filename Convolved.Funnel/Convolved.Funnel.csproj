@@ -59,6 +59,7 @@
     <Compile Include="Configuration\IConfigureUnknownRecordType`2.cs" />
     <Compile Include="Configuration\IConfigureValidation`1.cs" />
     <Compile Include="Configuration\IConfigure`1.cs" />
+    <Compile Include="Configuration\IFluentInterface.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="FileStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

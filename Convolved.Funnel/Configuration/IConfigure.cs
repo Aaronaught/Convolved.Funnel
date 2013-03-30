@@ -2,7 +2,7 @@
 
 namespace Convolved.Funnel.Configuration
 {
-    public interface IConfigure
+    public interface IConfigure : IFluentInterface
     {
         IConfigure<T> As<T>();
     }
