@@ -14,6 +14,8 @@ namespace Convolved.Funnel.Configuration
         IConfigureQuoting<T> Quoting();
         IConfigureTextSection<T, TSection> Section<TSection>(Func<T, TSection> selector);
         IConfigureTextSection<T, TSection> Section<TSection>(Func<T, IEnumerable<TSection>> selector);
+        IConfigureTextSection<T, TSection> Section<TSection>(Func<T, IList<TSection>> selector);
+        IConfigureTextSection<T, TSection> Section<TSection>(Func<T, ICollection<TSection>> selector);
         IConfigureParseErrorHandling<T> ParseErrors { get; }
     }
 }
