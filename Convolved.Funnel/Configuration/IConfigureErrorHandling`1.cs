@@ -7,9 +7,10 @@ namespace Convolved.Funnel.Configuration
     public interface IConfigureErrorHandling<T> : IConfigure<T>
     {
         IConfigureErrorHandling<T> HandleWith(Action<ValidationError> handler);
+        IConfigureErrorHandling<T> HandleWith(IHandleErrors handler);
         IConfigureErrorHandling<T> HandleWith(IHandleErrors<ValidationError> handler);
         IConfigureErrorHandling<T> HandleWith<THandler>(params object[] args) 
-            where THandler : IHandleErrors<ValidationError>;
+            where THandler : IHandleErrors;
         IConfigureErrorHandling<T> Throw();
     }
 }
