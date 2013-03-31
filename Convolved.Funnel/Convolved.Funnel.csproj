@@ -63,7 +63,10 @@
     <Compile Include="Configuration\IConfigureValidation`1.cs" />
     <Compile Include="Configuration\IConfigure`1.cs" />
     <Compile Include="Configuration\IFluentInterface.cs" />
+    <Compile Include="Ensure.cs" />
     <Compile Include="Error.cs" />
+    <Compile Include="FileContext.cs" />
+    <Compile Include="FileException.cs" />
     <Compile Include="FileStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\IAcceptParameters.cs" />
@@ -71,12 +74,16 @@
     <Compile Include="Tasks\ISendReports.cs" />
     <Compile Include="Tasks\SmtpSender.cs" />
     <Compile Include="Tasks\StandardErrorLog.cs" />
+    <Compile Include="Text\EndOfFileException.cs" />
+    <Compile Include="Text\EndOfLineException.cs" />
     <Compile Include="Text\IContainParseDetails.cs" />
     <Compile Include="Tasks\IReceive`1.cs" />
     <Compile Include="Tasks\ITransform`1.cs" />
     <Compile Include="Text\IParse.cs" />
     <Compile Include="Text\ParseError.cs" />
     <Compile Include="Tasks\ErrorHandler`1.cs" />
+    <Compile Include="Text\TextException.cs" />
+    <Compile Include="Text\TextFileContext.cs" />
     <Compile Include="Validation\IContainValidationDetails.cs" />
     <Compile Include="Tasks\IHandleErrors.cs" />
     <Compile Include="Validation\IValidate`1.cs" />
