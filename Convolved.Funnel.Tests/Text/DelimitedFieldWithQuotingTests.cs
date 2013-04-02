@@ -39,5 +39,13 @@ namespace Convolved.Funnel.Tests.Text
             var value = field.ReadValue(context);
             Assert.AreEqual("another one.", value);
         }
+
+        [TestMethod]
+        public void Advances_to_end_of_first_delimiter_after_end_quote()
+        {
+            context.CurrentLinePosition = 10;
+            field.ReadValue(context);
+            Assert.AreEqual(27, context.CurrentLinePosition);
+        }
     }
 }
