@@ -28,8 +28,8 @@ namespace Convolved.Funnel.Text
             context.EnsureNotAtEndOfLine();
             // TODO: Test performance of this under load, may need to switch to unsafe code
             int startPosition = context.CurrentLinePosition;
-            int endPosition = startPosition;
             bool isQuoted = false;
+            int endExcess = 0;
             var quotePositions = new List<int>();
             while (!context.Eol)
             {
@@ -51,12 +51,13 @@ namespace Convolved.Funnel.Text
                 if (foundSeparator != null)
                 {
                     context.CurrentLinePosition += foundSeparator.Length;
+                    endExcess = foundSeparator.Length;
                     break;
                 }
                 ++context.CurrentLinePosition;
-                endPosition = context.CurrentLinePosition;
             }
-            var value = context.CurrentLine.Substring(startPosition, endPosition - startPosition);
+            var value = context.CurrentLine.Substring(startPosition, 
+                context.CurrentLinePosition - startPosition - endExcess);
             return RemoveQuotes(value, quotePositions.Select(p => p - startPosition));
         }
 
