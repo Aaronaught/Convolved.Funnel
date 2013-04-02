@@ -33,7 +33,6 @@ namespace Convolved.Funnel.Text
             var quotePositions = new List<int>();
             while (!context.Eol)
             {
-                endPosition = context.CurrentLinePosition;
                 if (context.IsTokenAtCurrentPosition(escapedQuoteToken))
                 {
                     context.CurrentLinePosition += escapedQuoteToken.Length;
@@ -46,12 +45,7 @@ namespace Convolved.Funnel.Text
                     isQuoted = !isQuoted;
                     continue;
                 }
-                if (isQuoted)
-                {
-                    ++context.CurrentLinePosition;
-                    continue;
-                }
-                var foundSeparator = delimiters
+                var foundSeparator = isQuoted ? null : delimiters
                     .Where(s => context.IsTokenAtCurrentPosition(s))
                     .FirstOrDefault();
                 if (foundSeparator != null)
@@ -60,6 +54,7 @@ namespace Convolved.Funnel.Text
                     break;
                 }
                 ++context.CurrentLinePosition;
+                endPosition = context.CurrentLinePosition;
             }
             var value = context.CurrentLine.Substring(startPosition, endPosition - startPosition);
             return RemoveQuotes(value, quotePositions.Select(p => p - startPosition));

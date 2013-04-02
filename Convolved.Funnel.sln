@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convolved.Funnel", "Convolv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convolved.Funnel.Example", "Convolved.Funnel.Example\Convolved.Funnel.Example.csproj", "{6BF1152B-CF67-4713-B533-061241A761B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convolved.Funnel.Tests", "Convolved.Funnel.Tests\Convolved.Funnel.Tests.csproj", "{443F18ED-5734-482D-AF8A-4AFAFCF86CBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{6BF1152B-CF67-4713-B533-061241A761B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BF1152B-CF67-4713-B533-061241A761B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BF1152B-CF67-4713-B533-061241A761B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{443F18ED-5734-482D-AF8A-4AFAFCF86CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{443F18ED-5734-482D-AF8A-4AFAFCF86CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{443F18ED-5734-482D-AF8A-4AFAFCF86CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{443F18ED-5734-482D-AF8A-4AFAFCF86CBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
