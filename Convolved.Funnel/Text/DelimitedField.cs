@@ -19,7 +19,7 @@ namespace Convolved.Funnel.Text
             this.quoteToken = quoteToken;
             this.escapeToken = escapeToken;
             if (!string.IsNullOrEmpty(quoteToken) && !string.IsNullOrEmpty(escapeToken))
-                this.escapedQuoteToken = quoteToken = escapeToken;
+                this.escapedQuoteToken = quoteToken + escapeToken;
         }
 
         public string ReadValue(TextFileContext context)
@@ -31,10 +31,12 @@ namespace Convolved.Funnel.Text
             bool isQuoted = false;
             int endExcess = 0;
             var quotePositions = new List<int>();
+            var escapePositions = new List<int>();
             while (!context.Eol)
             {
                 if (context.IsTokenAtCurrentPosition(escapedQuoteToken))
                 {
+                    escapePositions.Add(context.CurrentLinePosition);
                     context.CurrentLinePosition += escapedQuoteToken.Length;
                     continue;
                 }
@@ -58,17 +60,21 @@ namespace Convolved.Funnel.Text
             }
             var value = context.CurrentLine.Substring(startPosition, 
                 context.CurrentLinePosition - startPosition - endExcess);
-            return RemoveQuotes(value, quotePositions.Select(p => p - startPosition));
+            if (quotePositions.Any())
+                value = RemoveTokens(value, quoteToken, quotePositions.Select(p => p - startPosition));
+            if (escapePositions.Any())
+                value = RemoveTokens(value, escapeToken, escapePositions.Select(p => p - startPosition));
+            return value;
         }
 
-        private string RemoveQuotes(string value, IEnumerable<int> quotePositions)
+        private string RemoveTokens(string value, string token, IEnumerable<int> positions)
         {
             int offset = 0;
             var sb = new StringBuilder(value);
-            foreach (var position in quotePositions)
+            foreach (var position in positions)
             {
-                sb.Remove(position - offset, quoteToken.Length);
-                offset += quoteToken.Length;
+                sb.Remove(position - offset, token.Length);
+                offset += token.Length;
             }
             return sb.ToString();
         }
