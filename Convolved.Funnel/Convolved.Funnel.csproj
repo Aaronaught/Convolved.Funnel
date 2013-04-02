@@ -74,12 +74,15 @@
     <Compile Include="Tasks\ISendReports.cs" />
     <Compile Include="Tasks\SmtpSender.cs" />
     <Compile Include="Tasks\StandardErrorLog.cs" />
+    <Compile Include="Text\DelimitedField.cs" />
     <Compile Include="Text\EndOfFileException.cs" />
     <Compile Include="Text\EndOfLineException.cs" />
+    <Compile Include="Text\FixedWidthField.cs" />
     <Compile Include="Text\IContainParseDetails.cs" />
     <Compile Include="Tasks\IReceive`1.cs" />
     <Compile Include="Tasks\ITransform`1.cs" />
     <Compile Include="Text\IParse.cs" />
+    <Compile Include="Text\ITextField.cs" />
     <Compile Include="Text\ParseError.cs" />
     <Compile Include="Tasks\ErrorHandler`1.cs" />
     <Compile Include="Text\TextException.cs" />

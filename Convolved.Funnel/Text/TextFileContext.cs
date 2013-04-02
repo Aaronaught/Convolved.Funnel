@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Convolved.Funnel.Text
 {
-    class TextFileContext : FileContext
+    public class TextFileContext : FileContext
     {
         private readonly TextReader reader;
 
@@ -23,37 +23,31 @@ namespace Convolved.Funnel.Text
             this.CurrentLineNumber = 1;
         }
 
-        public string ReadCurrentLineExactly(int characterCount)
+        public void EnsureNotAtEndOfFile()
         {
-            Ensure.ArgumentGreater(characterCount, 0, "characterCount");
-            EnsureNotAtEndOfLine(characterCount);
-            CurrentLinePosition += characterCount;
-            return CurrentLine.Substring(CurrentLinePosition - characterCount, characterCount);
+            if (Eof)
+                throw new EndOfFileException(this);
         }
 
-        public string ReadCurrentLineTo(IEnumerable<string> separators)
+        public void EnsureNotAtEndOfLine(int characterCount = 1)
         {
-            Ensure.ArgumentNotNull(separators, "separators");
-            EnsureNotAtEndOfLine();
-            // TODO: Test performance of this under load, may need to switch to unsafe code
-            int startPosition = CurrentLinePosition;
-            while (CurrentLinePosition < CurrentLine.Length)
-            {
-                int remainingLength = CurrentLine.Length - CurrentLinePosition;
-                var foundSeparator = separators
-                    .Where(s =>
-                        (s.Length <= remainingLength) &&
-                        (CurrentLine.Substring(CurrentLinePosition, s.Length) == s)
-                    )
-                    .FirstOrDefault();
-                if (foundSeparator != null)
-                {
-                    CurrentLinePosition += foundSeparator.Length;
-                    return CurrentLine.Substring(startPosition, 
-                        CurrentLinePosition - startPosition - foundSeparator.Length);
-                }
-            }
-            return CurrentLine.Substring(startPosition);
+            if ((CurrentLine == null) || ((CurrentLinePosition + characterCount) <= CurrentLine.Length))
+                throw new EndOfLineException(this, characterCount);
+        }
+
+        public bool IsTokenAtCurrentPosition(string token, StringComparison comparison = StringComparison.Ordinal)
+        {
+            return IsTokenAtPosition(token, CurrentLinePosition, comparison);
+        }
+
+        public bool IsTokenAtPosition(string token, int position, StringComparison comparison = StringComparison.Ordinal)
+        {
+            if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(CurrentLine))
+                return false;
+            int remainingLength = CurrentLine.Length - position;
+            if (remainingLength < token.Length)
+                return false;
+            return string.Equals(CurrentLine.Substring(position, token.Length), token, comparison);
         }
 
         public async Task<bool> ReadNextLineAsync()
@@ -66,21 +60,14 @@ namespace Convolved.Funnel.Text
             return !Eof;
         }
 
-        private void EnsureNotAtEndOfFile()
-        {
-            if (Eof)
-                throw new EndOfFileException(this);
-        }
-
-        private void EnsureNotAtEndOfLine(int characterCount = 1)
-        {
-            if ((CurrentLine == null) || ((CurrentLinePosition + characterCount) <= CurrentLine.Length))
-                throw new EndOfLineException(this, characterCount);
-        }
-
         public string CurrentLine { get; private set; }
         public int CurrentLineNumber { get; private set; }
-        public int CurrentLinePosition { get; private set; }
+        public int CurrentLinePosition { get; set; }
         public bool Eof { get; private set; }
+
+        public bool Eol
+        {
+            get { return string.IsNullOrEmpty(CurrentLine) || (CurrentLinePosition >= CurrentLine.Length); }
+        }
     }
 }

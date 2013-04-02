@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Convolved.Funnel
 {
-    class FileContext
+    public class FileContext
     {
         public FileContext(string fileName, Stream stream)
         {
