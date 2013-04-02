@@ -31,7 +31,7 @@ namespace Convolved.Funnel.Text
 
         public void EnsureNotAtEndOfLine(int characterCount = 1)
         {
-            if ((CurrentLine == null) || ((CurrentLinePosition + characterCount) <= CurrentLine.Length))
+            if ((CurrentLine == null) || ((CurrentLinePosition + characterCount) >= CurrentLine.Length))
                 throw new EndOfLineException(this, characterCount);
         }
 
