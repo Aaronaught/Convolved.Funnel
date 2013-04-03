@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Mapping\PropertyMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text\DelimitedFieldWithQuotingAndEscapingTests.cs" />
     <Compile Include="Text\DelimitedFieldWithQuotingTests.cs" />
