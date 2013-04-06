@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -50,7 +53,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Mapping\PropertyMapperTests.cs" />
+    <Compile Include="Mapping\PropertyMapTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text\DelimitedFieldWithQuotingAndEscapingTests.cs" />
     <Compile Include="Text\DelimitedFieldWithQuotingTests.cs" />
@@ -63,6 +68,9 @@
       <Project>{8732c0f9-5e8d-463a-b48d-7fcf66241a2b}</Project>
       <Name>Convolved.Funnel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
