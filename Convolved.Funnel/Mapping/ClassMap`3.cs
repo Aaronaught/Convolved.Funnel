@@ -10,19 +10,19 @@ namespace Convolved.Funnel.Mapping
         private readonly List<IPropertyMap<T, TContext, TData>> propertyMaps = new 
             List<IPropertyMap<T, TContext, TData>>();
 
-        public void AddPropertyMap(IPropertyMap<T, TContext, TData> propertyMap)
-        {
-            Ensure.ArgumentNotNull(propertyMap, "propertyMap");
-            propertyMaps.Add(propertyMap);
-        }
-
         public void Extract(TContext context, T target)
         {
             foreach (var propertyMap in propertyMaps)
                 propertyMap.Extract(context, target);
         }
 
-        public void Map<TProperty>(Expression<Func<T, TProperty>> property, IField<TContext, TData> field,
+        public void Property(IPropertyMap<T, TContext, TData> propertyMap)
+        {
+            Ensure.ArgumentNotNull(propertyMap, "propertyMap");
+            propertyMaps.Add(propertyMap);
+        }
+
+        public void Property<TProperty>(Expression<Func<T, TProperty>> property, IField<TContext, TData> field,
             Func<TData, TProperty> selector)
         {
             Ensure.ArgumentNotNull(property, "property");
