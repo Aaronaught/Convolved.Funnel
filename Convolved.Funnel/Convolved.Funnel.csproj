@@ -69,6 +69,7 @@
     <Compile Include="FileException.cs" />
     <Compile Include="FileStatus.cs" />
     <Compile Include="Mapping\PropertyMapper.cs" />
+    <Compile Include="FunnelException.cs" />
     <Compile Include="IField`2.cs" />
     <Compile Include="Mapping\PropertyMapper`1.cs" />
     <Compile Include="Mapping\PropertyNotMappedException.cs" />

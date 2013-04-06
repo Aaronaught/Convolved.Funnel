@@ -2,7 +2,7 @@
 
 namespace Convolved.Funnel.Mapping
 {
-    public class PropertyNotMappedException : Exception
+    public class PropertyNotMappedException : FunnelException
     {
         public PropertyNotMappedException(Type type, string propertyName)
             : this(type, propertyName, 

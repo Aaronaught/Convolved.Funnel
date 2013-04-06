@@ -2,7 +2,7 @@
 
 namespace Convolved.Funnel
 {
-    public class FileException : Exception
+    public class FileException : FunnelException
     {
         private const string DefaultMessage = "An error occurred while reading the file.";
 
