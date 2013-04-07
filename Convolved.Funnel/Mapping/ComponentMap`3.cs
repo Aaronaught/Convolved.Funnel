@@ -24,6 +24,8 @@ namespace Convolved.Funnel.Mapping
         {
             Ensure.ArgumentNotNull(property, "property");
             var propertySetter = PropertyMapper<T>.GetSetter(property);
+            // TODO: SingleOrDefault will throw an InvalidOperationException for multiple elements;
+            // Consider changing to custom exception type.
             this.setter = (instance, sequence) =>
                 propertySetter(instance, sequence.SingleOrDefault());
         }
@@ -50,7 +52,7 @@ namespace Convolved.Funnel.Mapping
             this.sectionContextSelector = sectionContextSelector;
             this.componentInitializer = componentInitializer;
             this.innerMap = innerMap;
-            this.endOfSectionPredicate = endOfSectionPredicate ?? (sc => true);
+            this.endOfSectionPredicate = endOfSectionPredicate ?? (sc => false);
         }
 
         public async Task ExtractAsync(TContext context, T target)
