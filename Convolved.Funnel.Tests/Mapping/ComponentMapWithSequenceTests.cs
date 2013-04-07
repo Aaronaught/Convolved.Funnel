@@ -61,7 +61,7 @@ namespace Convolved.Funnel.Tests.Mapping
 
         public class ParentTarget
         {
-            public IEnumerable<ChildTarget> Children { get; set; }
+            public IList<ChildTarget> Children { get; set; }
         }
 
         public class ChildTarget { }

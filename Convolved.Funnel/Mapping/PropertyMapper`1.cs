@@ -43,7 +43,9 @@ namespace Convolved.Funnel.Mapping
                 var valueParameter = Expression.Parameter(typeof(TProperty), "v");
                 return
                     Expression.Lambda<Action<T, TProperty>>(
-                        Expression.Assign(Expression.Property(instanceParameter, property), valueParameter),
+                        Expression.Assign(
+                            Expression.Property(instanceParameter, property), 
+                            Expression.Convert(valueParameter, property.PropertyType)),
                         instanceParameter, valueParameter
                     )
                     .Compile();
