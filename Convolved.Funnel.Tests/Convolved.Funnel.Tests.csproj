@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Mapping\ComponentMapWithSequenceTests.cs" />
     <Compile Include="Mapping\PropertyMapTests.cs">
       <SubType>Code</SubType>
     </Compile>
