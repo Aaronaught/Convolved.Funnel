@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace Convolved.Funnel.Mapping
 {
-    public class PropertyMap<T, TProperty, TContext, TData> : IPropertyMap<T, TContext, TData>
+    public class PropertyMap<T, TProperty, TContext, TData> : IPropertyMap<T, TContext>
         where TContext : FileContext
     {
         private readonly Action<T, TProperty> setter;

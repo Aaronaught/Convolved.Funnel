@@ -7,8 +7,8 @@ namespace Convolved.Funnel.Mapping
     public class ClassMap<T, TContext, TData> : IClassMap<T, TContext>
         where TContext : FileContext
     {
-        private readonly List<IPropertyMap<T, TContext, TData>> propertyMaps = new 
-            List<IPropertyMap<T, TContext, TData>>();
+        private readonly List<IPropertyMap<T, TContext>> propertyMaps = new 
+            List<IPropertyMap<T, TContext>>();
 
         public void Extract(TContext context, T target)
         {
@@ -16,7 +16,7 @@ namespace Convolved.Funnel.Mapping
                 propertyMap.Extract(context, target);
         }
 
-        public void Property(IPropertyMap<T, TContext, TData> propertyMap)
+        public void Property(IPropertyMap<T, TContext> propertyMap)
         {
             Ensure.ArgumentNotNull(propertyMap, "propertyMap");
             propertyMaps.Add(propertyMap);
