@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Convolved.Funnel.Mapping
 {
-    public class ClassMap<T, TContext, TData>
+    public class ClassMap<T, TContext, TData> : IClassMap<T, TContext>
         where TContext : FileContext
     {
         private readonly List<IPropertyMap<T, TContext, TData>> propertyMaps = new 
