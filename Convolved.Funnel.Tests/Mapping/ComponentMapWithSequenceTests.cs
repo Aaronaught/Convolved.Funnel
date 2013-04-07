@@ -59,6 +59,16 @@ namespace Convolved.Funnel.Tests.Mapping
             childTargetMapMock.Verify(m => m.ExtractAsync(context, childTargets[1]));
         }
 
+        [TestMethod]
+        public void When_end_of_section_then_extract_stops()
+        {
+            sectionContextStub.RecordCount = 5;
+            endOfSectionPredicate = c => (sectionContextStub.CurrentRecordCount > 1);
+            map.ExtractAsync(context, parentTarget).Wait();
+            Assert.IsNotNull(parentTarget.Children);
+            Assert.AreEqual(1, parentTarget.Children.Count());
+        }
+
         public class ParentTarget
         {
             public IList<ChildTarget> Children { get; set; }
