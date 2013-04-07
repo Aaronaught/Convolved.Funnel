@@ -11,24 +11,24 @@ namespace Convolved.Funnel.Tests.Mapping
     {
         private FileContext context;
         private Mock<IField<FileContext, int>> fieldMock;
-        private PropertyMap<PropertyMapTarget, int, FileContext, int> map;
-        private PropertyMapTarget target;
+        private PropertyMap<Target, int, FileContext, int> map;
+        private Target target;
 
         [TestInitialize]
         public void Initialize()
         {
             context = new FileContext("test", new MemoryStream());
             fieldMock = new Mock<IField<FileContext, int>>();
-            map = new PropertyMap<PropertyMapTarget, int, FileContext, int>(t => t.Id,
+            map = new PropertyMap<Target, int, FileContext, int>(t => t.Id,
                 fieldMock.Object, i => i);
-            target = new PropertyMapTarget();
+            target = new Target();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void Ctor_throws_when_expression_is_not_direct_property_access()
         {
-            new PropertyMap<PropertyMapTarget, int, FileContext, int>(t => 42, fieldMock.Object, i => i);
+            new PropertyMap<Target, int, FileContext, int>(t => 42, fieldMock.Object, i => i);
         }
 
         [TestMethod]
@@ -38,10 +38,10 @@ namespace Convolved.Funnel.Tests.Mapping
             map.ExtractAsync(context, target).Wait();
             Assert.AreEqual(42, target.Id);
         }
-    }
 
-    class PropertyMapTarget
-    {
-        public int Id { get; set; }
+        public class Target
+        {
+            public int Id { get; set; }
+        }
     }
 }

@@ -11,14 +11,14 @@ namespace Convolved.Funnel.Tests.Mapping
     {
         private FileContext context;
         private Mock<IField<FileContext, string>> fieldMock;
-        private ClassMap<ClassMapTarget, FileContext, string> map;
+        private ClassMap<Target, FileContext, string> map;
 
         [TestInitialize]
         public void Initialize()
         {
             context = new FileContext("test.txt", new MemoryStream());
             fieldMock = new Mock<IField<FileContext, string>>();
-            map = new ClassMap<ClassMapTarget, FileContext, string>();
+            map = new ClassMap<Target, FileContext, string>();
         }
 
         [TestMethod]
@@ -31,18 +31,18 @@ namespace Convolved.Funnel.Tests.Mapping
             map.Property(t => t.Id, fieldMock.Object, s => int.Parse(s));
             map.Property(t => t.Name, fieldMock.Object, s => s);
             map.Property(t => t.Date, fieldMock.Object, s => DateTime.Parse(s));
-            var target = new ClassMapTarget();
+            var target = new Target();
             map.ExtractAsync(context, target).Wait();
             Assert.AreEqual(42, target.Id);
             Assert.AreEqual("foo", target.Name);
             Assert.AreEqual(new DateTime(2013, 4, 5), target.Date);
         }
-    }
 
-    class ClassMapTarget
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public DateTime Date { get; set; }
+        public class Target
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public DateTime Date { get; set; }
+        }
     }
 }
