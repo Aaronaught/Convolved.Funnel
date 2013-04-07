@@ -35,7 +35,7 @@ namespace Convolved.Funnel.Tests.Mapping
         public void Extract_sets_property_value_to_value_selected_from_field()
         {
             fieldMock.Setup(m => m.ReadValue(It.IsAny<FileContext>())).Returns(42);
-            map.Extract(context, target);
+            map.ExtractAsync(context, target).Wait();
             Assert.AreEqual(42, target.Id);
         }
     }

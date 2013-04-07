@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Convolved.Funnel.Mapping
 {
@@ -21,12 +22,15 @@ namespace Convolved.Funnel.Mapping
             this.selector = selector;
         }
 
-        public void Extract(TContext context, T target)
+        public Task ExtractAsync(TContext context, T target)
         {
             Ensure.ArgumentNotNull(context, "context");
-            var fieldValue = field.ReadValue(context);
-            var propertyValue = selector(fieldValue);
-            setter(target, propertyValue);
+            return Task.Run(() =>
+            {
+                var fieldValue = field.ReadValue(context);
+                var propertyValue = selector(fieldValue);
+                setter(target, propertyValue);
+            });
         }
     }
 }

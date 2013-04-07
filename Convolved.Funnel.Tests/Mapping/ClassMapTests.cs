@@ -32,7 +32,7 @@ namespace Convolved.Funnel.Tests.Mapping
             map.Property(t => t.Name, fieldMock.Object, s => s);
             map.Property(t => t.Date, fieldMock.Object, s => DateTime.Parse(s));
             var target = new ClassMapTarget();
-            map.Extract(context, target);
+            map.ExtractAsync(context, target).Wait();
             Assert.AreEqual(42, target.Id);
             Assert.AreEqual("foo", target.Name);
             Assert.AreEqual(new DateTime(2013, 4, 5), target.Date);

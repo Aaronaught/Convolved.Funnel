@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Convolved.Funnel.Mapping
 {
     public interface IClassMap<T, TContext>
         where TContext : FileContext
     {
-        void Extract(TContext context, T target);
+        Task ExtractAsync(TContext context, T target);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Convolved.Funnel.Mapping
 {
@@ -10,10 +11,10 @@ namespace Convolved.Funnel.Mapping
         private readonly List<IPropertyMap<T, TContext>> propertyMaps = new 
             List<IPropertyMap<T, TContext>>();
 
-        public void Extract(TContext context, T target)
+        public async Task ExtractAsync(TContext context, T target)
         {
             foreach (var propertyMap in propertyMaps)
-                propertyMap.Extract(context, target);
+                await propertyMap.ExtractAsync(context, target);
         }
 
         public void Property(IPropertyMap<T, TContext> propertyMap)
